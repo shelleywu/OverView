@@ -5,7 +5,6 @@ using HoloToolkit.Sharing;
 using HoloToolkit.Unity;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows.Speech;
 
 /// <summary>
 /// Broadcasts the head transform of the local user to other users in the session,
@@ -32,8 +31,6 @@ public class RemoteHeadManager : Singleton<RemoteHeadManager>
         //TODO: Step 3 Register Message handler for receiving messages of new MessageID Types.
         CustomMessages.Instance.MessageHandlers[CustomMessages.TestMessageID.HeadTransform] = this.UpdateHeadTransform;
 
-
-
         SharingSessionTracker.Instance.SessionJoined += Instance_SessionJoined;
         SharingSessionTracker.Instance.SessionLeft += Instance_SessionLeft;
     }
@@ -49,7 +46,6 @@ public class RemoteHeadManager : Singleton<RemoteHeadManager>
 
         //TODO: Step 5 Call network broadcaster with current game state.
         CustomMessages.Instance.SendHeadTransform(headPosition, headRotation);
-        
     }
 
     /// <summary>
@@ -113,14 +109,6 @@ public class RemoteHeadManager : Singleton<RemoteHeadManager>
         headInfo.HeadObject.transform.localPosition = headPos;
         headInfo.HeadObject.transform.localRotation = headRot;
     }
-
-   
-
-
-    //other user will see visility if it is recent voice command
-
-
-  
 
     /// <summary>
     /// Creates a new game object to represent the user's head.

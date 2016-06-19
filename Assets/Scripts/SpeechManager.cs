@@ -6,12 +6,12 @@ using UnityEngine.Windows.Speech;
 public class SpeechManager: MonoBehaviour{
 	public RoomCommands commandHandlerXRay;
 	public RoomCommands commandHandlerOpaque;
-	public Renderer xrayRenderer;
-	public Renderer opaqueRenderer;
+	private Renderer xrayRenderer;
+	private Renderer opaqueRenderer;
 	public GameObject roomManager;
 
 	private KeywordRecognizer keywordRecognizer = null;
-	public Dictionary< string, System.Action > keywords = new Dictionary< string, System.Action >();
+	private Dictionary< string, System.Action > keywords = new Dictionary< string, System.Action >();
 
 	public void OnGUI(){
 		GUI.color = Color.white;
@@ -42,31 +42,27 @@ public class SpeechManager: MonoBehaviour{
 			"Shrink world", () => { // Call the OnReset method on every descendant object.
 				commandHandlerXRay.SendMessage( "OnShrink" );
 				commandHandlerOpaque.SendMessage( "OnShrink" );
-                CustomMessages.Instance.sendShrink();
-            }
+			}
 		);
 
 		keywords.Add(
 			"Reset world", () => { // Call the OnReset method on every descendant object.
 				commandHandlerXRay.SendMessage( "OnReset" );
 				commandHandlerOpaque.SendMessage( "OnReset" );
-                CustomMessages.Instance.sendReset();
-            }
+			}
 		);
 
 		keywords.Add(
 			"Toggle X-Ray", () => {
 				xrayRenderer.enabled = !xrayRenderer.enabled;
 				opaqueRenderer.enabled = !opaqueRenderer.enabled;
-                CustomMessages.Instance.sendXRay();
 			}
 		);
 
 		keywords.Add(
 			"Toggle Visibility", () => {
 				roomManager.SetActive( !roomManager.activeInHierarchy );
-                CustomMessages.Instance.sendVisibility();
-            }
+			}
 		);
 
 		// Tell the KeywordRecognizer about our keywords.
@@ -82,6 +78,4 @@ public class SpeechManager: MonoBehaviour{
 		if( keywords.TryGetValue( args.text, out keywordAction ) )
 			keywordAction.Invoke();
 	}
-    
-    
 }
