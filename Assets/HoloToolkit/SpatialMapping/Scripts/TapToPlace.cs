@@ -33,7 +33,7 @@ namespace HoloToolkit.Unity
 
         void Start() {
             //debug.text = "WHOO!";
-            SpatialMappingManager.Instance.DrawVisualMeshes = true;
+            SpatialMappingManager.Instance.DrawVisualMeshes = false;
 
         }
 

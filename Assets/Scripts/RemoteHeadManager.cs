@@ -113,8 +113,9 @@ public class RemoteHeadManager : Singleton<RemoteHeadManager>
         headInfo.HeadObject.transform.localPosition = headPos;
         headInfo.HeadObject.transform.localRotation = headRot;
 
-				ProxyUpdater proxyHead = headInfo.HeadObject.GetComponentInChildren< ProxyUpdater >();
-				proxyHead.UpdatePosition( headPos );
+				//ProxyUpdater proxyHead = headInfo.HeadObject.GetComponentInChildren< ProxyUpdater >();
+
+				//gameObject.transform.position = ProxyUpdater.MiniaturizePosition( headPos );
     }
 
    
@@ -135,10 +136,10 @@ public class RemoteHeadManager : Singleton<RemoteHeadManager>
         newHeadObj.transform.parent = this.gameObject.transform;
         newHeadObj.transform.localScale = Vector3.one * 0.2f;
 
-				GameObject proxyHeadObj = GameObject.CreatePrimitive( PrimitiveType.Cube );
-				proxyHeadObj.transform.parent = newHeadObj.transform;
-        proxyHeadObj.transform.localScale = Vector3.one * 0.2f;
-				proxyHeadObj.AddComponent< ProxyUpdater >();
+				//GameObject proxyHeadObj = GameObject.CreatePrimitive( PrimitiveType.Cube );
+				//proxyHeadObj.transform.parent = newHeadObj.transform;
+    //    proxyHeadObj.transform.localScale = Vector3.one * 0.2f;
+				//proxyHeadObj.AddComponent< ProxyUpdater >();
 
         return newHeadObj;
     }

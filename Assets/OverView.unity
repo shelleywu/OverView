@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45055848, g: 0.50063163, b: 0.5758049, a: 1}
+  m_IndirectSpecularColor: {r: 0.4505589, g: 0.50063235, b: 0.5758059, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -489,14 +489,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1089901955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa48b8a3119f2b24896e22f864cf43ee, type: 3}
+  m_Script: {fileID: 11500000, guid: dab0e13eb49089146842af1e2ea044f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
-  rawAnchorData: []
-  exportingAnchorBytes: []
-  sharingServiceReady: 0
-  <exportingAnchorName>k__BackingField: 
 --- !u!114 &1089901957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +500,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1089901955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d681d9f273ecb84285cb0fd9548d5bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 030244027b7a54d49b55e73737801faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1089901958
@@ -531,7 +526,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1206101616}
-  - 114: {fileID: 1206101615}
   - 114: {fileID: 1206101614}
   m_Layer: 0
   m_Name: InCanvas
@@ -557,18 +551,6 @@ MonoBehaviour:
   debug3: {fileID: 1290532859}
   debug4: {fileID: 1290532858}
   defaultNote: {fileID: 1411698014}
---- !u!114 &1206101615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000012814598362, guid: 58a4a824d38668540b9bfd2cb56d7471,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1206101613}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1206101616
 Transform:
   m_ObjectHideFlags: 0
@@ -709,6 +691,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011167504578, guid: eb071e302f59f8f439dfbcea3c14a2da, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb071e302f59f8f439dfbcea3c14a2da, type: 2}
   m_IsPrefabParent: 0
@@ -755,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1411698015
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1008,7 +994,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2078656482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a63ef1b98adec49bdb80fe1f187893, type: 3}
+  m_Script: {fileID: 11500000, guid: 110eb3cddc068214b9681630420a2592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2078656484
