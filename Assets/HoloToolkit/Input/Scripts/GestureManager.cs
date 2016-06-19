@@ -14,6 +14,10 @@ namespace HoloToolkit.Unity
     [RequireComponent(typeof(GazeManager))]
     public partial class GestureManager : Singleton<GestureManager>
     {
+        //public GameObject focusedobject;
+        public TextMesh text;
+        public GameObject InCanvas;
+
         /// <summary>
         /// To select even when a hologram is not being gazed at,
         /// set the override focused object.
@@ -39,20 +43,54 @@ namespace HoloToolkit.Unity
         {
             // Create a new GestureRecognizer. Sign up for tapped events.
             gestureRecognizer = new GestureRecognizer();
-            gestureRecognizer.SetRecognizableGestures(GestureSettings.Tap);
+            gestureRecognizer.SetRecognizableGestures(GestureSettings.Tap | GestureSettings.Hold);
 
             gestureRecognizer.TappedEvent += GestureRecognizer_TappedEvent;
+            gestureRecognizer.HoldStartedEvent += GestureRecognizer_HoldStartedEvent1;
+            gestureRecognizer.HoldCanceledEvent += GestureRecognizer_HoldCanceledEvent;
+            gestureRecognizer.HoldCompletedEvent += GestureRecognizer_HoldCompletedEvent;
 
             // Start looking for gestures.
             gestureRecognizer.StartCapturingGestures();
         }
 
+        private void GestureRecognizer_HoldCompletedEvent(InteractionSourceKind source, Ray headRay)
+        {
+            //throw new System.NotImplementedException();
+            InCanvas.SendMessage("OnHoldCompleted", focusedObject);
+            text.text = "HoldCompleted";
+        }
+
+        private void GestureRecognizer_HoldCanceledEvent(InteractionSourceKind source, Ray headRay)
+        {
+            //throw new System.NotImplementedException();
+            InCanvas.SendMessage("OnHoldCanceled", focusedObject);
+            text.text = "HoldCanceled";
+        }
+
+        private void GestureRecognizer_HoldStartedEvent1(InteractionSourceKind source, Ray headRay)
+        {
+            //throw new System.NotImplementedException();
+            InCanvas.SendMessage("OnHoldStarted", focusedObject);
+            text.text = "HoldStarted";
+        }
+
+
         private void GestureRecognizer_TappedEvent(InteractionSourceKind source, int tapCount, Ray headRay)
         {
-            if (focusedObject != null)
+            if (focusedObject == null)
             {
-                focusedObject.SendMessage("OnSelect");
+                text.text = null;
             }
+            else
+            {
+                text.text = focusedObject.name;
+            }
+
+            InCanvas.SendMessage("OnSelect", focusedObject);
+            
+            
+            //text.text = "Select";
         }
 
         void LateUpdate()

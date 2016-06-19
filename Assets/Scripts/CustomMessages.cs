@@ -17,10 +17,6 @@ public class CustomMessages : Singleton<CustomMessages>
     public enum TestMessageID : byte
     {
         HeadTransform = MessageID.UserMessageIDStart,
-        Visiblity,
-        XRay,
-        Shrink,
-        Reset,
         Max
     }
 
@@ -66,20 +62,20 @@ public class CustomMessages : Singleton<CustomMessages>
     void InitializeMessageHandlers()
     {
         SharingStage sharingStage = SharingStage.Instance;
-
+        
         if (sharingStage == null)
         {
             Debug.Log("Cannot Initialize CustomMessages. No SharingStage instance found.");
             return;
         }
-
+        
         serverConnection = sharingStage.Manager.GetServerConnection();
         if (serverConnection == null)
         {
             Debug.Log("Cannot initialize CustomMessages. Cannot get a server connection.");
             return;
         }
-
+        
         connectionAdapter = new NetworkConnectionAdapter();
         connectionAdapter.MessageReceivedCallback += OnMessageReceived;
 
@@ -107,7 +103,7 @@ public class CustomMessages : Singleton<CustomMessages>
     }
 
     //TODO: copy this for your messages
-    //TODO: Step 2 create message broadcast for new message type. create a message with the id type 
+    //TODO: Step 2 create message broadcast for new message type.
     public void SendHeadTransform(Vector3 position, Quaternion rotation)
     {
         // If we are connected to a session, broadcast our head info
@@ -115,7 +111,7 @@ public class CustomMessages : Singleton<CustomMessages>
         {
             // Create an outgoing network message to contain all the info we want to send
             NetworkOutMessage msg = CreateMessage((byte)TestMessageID.HeadTransform);
-            
+
             AppendTransform(msg, position, rotation);
 
             // Send the message as a broadcast, which will cause the server to forward it to all other users in the session.
@@ -124,62 +120,7 @@ public class CustomMessages : Singleton<CustomMessages>
                 MessagePriority.Immediate,
                 MessageReliability.UnreliableSequenced,
                 MessageChannel.Avatar);
-
         }
-    }
-
-    public void sendVisibility()
-    {
-        if (this.serverConnection != null && this.serverConnection.IsConnected())
-        {
-            NetworkOutMessage visibility = CreateMessage((byte)TestMessageID.Visiblity);
-            this.serverConnection.Broadcast(
-                    visibility,
-                    MessagePriority.Immediate,
-                MessageReliability.UnreliableSequenced,
-                MessageChannel.Avatar);
-        }
-    }
-
-    public void sendXRay()
-    {
-        if (this.serverConnection != null && this.serverConnection.IsConnected())
-        {
-            NetworkOutMessage XRay = CreateMessage((byte)TestMessageID.XRay);
-            this.serverConnection.Broadcast(
-                    XRay,
-                    MessagePriority.Immediate,
-                MessageReliability.UnreliableSequenced,
-                MessageChannel.Avatar);
-        }
-    }
-
-    public void sendShrink()
-    {
-        if (this.serverConnection != null && this.serverConnection.IsConnected())
-        {
-            NetworkOutMessage Shrink = CreateMessage((byte)TestMessageID.Shrink);
-            this.serverConnection.Broadcast(
-                    Shrink,
-                    MessagePriority.Immediate,
-                MessageReliability.UnreliableSequenced,
-                MessageChannel.Avatar);
-        }
-    }
-
-    public void sendReset()
-    {
-        if (this.serverConnection != null && this.serverConnection.IsConnected())
-        {
-
-            NetworkOutMessage Reset = CreateMessage((byte)TestMessageID.Reset);
-            this.serverConnection.Broadcast(
-                    Reset,
-                    MessagePriority.Immediate,
-                MessageReliability.UnreliableSequenced,
-                MessageChannel.Avatar);
-        }
-
     }
 
     void OnDestroy()
