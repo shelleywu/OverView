@@ -133,6 +133,11 @@ Prefab:
       propertyPath: m_Name
       value: UploadVR (XRay)
       objectReference: {fileID: 0}
+    - target: {fileID: 23000012492362722, guid: 09041149a0a8fb84991e7ce0d96a17b1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09041149a0a8fb84991e7ce0d96a17b1, type: 2}
   m_IsPrefabParent: 0
@@ -431,6 +436,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010941829908, guid: 09041149a0a8fb84991e7ce0d96a17b1,
     type: 2}
   m_PrefabInternal: {fileID: 100568599}
+--- !u!1 &1261155957 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010506921028, guid: 09041149a0a8fb84991e7ce0d96a17b1,
+    type: 2}
+  m_PrefabInternal: {fileID: 100568599}
+--- !u!64 &1261155958
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1261155957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: bcf2f774ddf0c1440b4a5cd3d73e9c72, type: 3}
 --- !u!1 &1751651379
 GameObject:
   m_ObjectHideFlags: 0
