@@ -8,9 +8,9 @@ public class ProxyUpdater: MonoBehaviour{
 	private const	float miniX = 0.00556f;
 	private const	float miniY = -0.00356f;
 	private const	float miniZ = -0.00695f;
-	private const	float ratioX = miniX/realX;
-	private const	float ratioY = miniY/realY;
-	private const	float ratioZ = miniZ/realZ;
+	private const	float ratioX = ( miniX/realX )*10;
+	private const	float ratioY = ( miniY/realY )*10;
+	private const	float ratioZ = ( miniZ/realZ )*10;
 
 	public static Vector3 MiniaturizePosition( Vector3 realWorldPos ){
 		return new Vector3( realWorldPos.x * ratioX, realWorldPos.y * ratioY, realWorldPos.z * ratioZ );

@@ -190,6 +190,11 @@ Prefab:
       propertyPath: text
       value: 
       objectReference: {fileID: 1290532857}
+    - target: {fileID: 114000013943603332, guid: 9b93b523e523dbf4d86ff6cd26986078,
+        type: 2}
+      propertyPath: SetStabilizationPlane
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b93b523e523dbf4d86ff6cd26986078, type: 2}
   m_IsPrefabParent: 0

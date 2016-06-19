@@ -37,7 +37,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012419352710}
-  - 114: {fileID: 114000012814598362}
   - 114: {fileID: 114000013679938660}
   m_Layer: 0
   m_Name: InCanvas
@@ -120,17 +119,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114000012814598362
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012665861188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a3abb53a3eef04d8ba1d5a6c254a04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000013679938660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,3 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbad991a9894486418e4988222483ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: {fileID: 0}
+  debug2: {fileID: 0}
+  debug3: {fileID: 0}
+  debug4: {fileID: 0}
+  defaultNote: {fileID: 0}
