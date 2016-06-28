@@ -22,7 +22,7 @@ namespace HoloToolkit.Unity
         public Material surfaceMaterial;
 
         [Tooltip("Determines if spatial mapping data will be rendered.")]
-        public bool drawVisualMeshes = false;
+        public bool drawVisualMeshes = true;
 
         [Tooltip("Determines if spatial mapping data will cast shadows.")]
         public bool castShadows = false;

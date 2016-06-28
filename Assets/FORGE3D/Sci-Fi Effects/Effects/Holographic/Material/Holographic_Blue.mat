@@ -30,7 +30,7 @@ Material:
     m_Floats:
     - first:
         name: _Fade
-      second: 0.364
+      second: 0.567
     - first:
         name: _FresMult
       second: 1
