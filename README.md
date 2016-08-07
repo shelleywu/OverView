@@ -1,6 +1,6 @@
 # OverView
 
-<b>Microsfot Hololens' Holographic Hackathon Project</b>
+<b>Microsoft Hololens' Holographic Hackathon Project</b>
 
 <p>Tracks other Hololens users in real-time.</p>
 <p>Creates spatial map and shrinks the map mesh onto the table.</p>
